@@ -44,6 +44,10 @@ An interactive Tableau dashboard was created to visualize key time-based trends:
 
 🌐 **Live Dashboard (Tableau Public):**  
 [View Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
+ 
+📄 View Full RMarkdown Report  
+Published to RPubs for full transparency and reproducibility:  
+🔗 [Cyclistic Case Study – RMarkdown Report (RPubs)](https://rpubs.com/Nikki0686/1312027)
 
 ---
 
