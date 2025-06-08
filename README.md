@@ -40,7 +40,8 @@ An interactive Tableau dashboard highlights time-based usage trends:
 - 📈 Day-of-week and time-of-day usage patterns  
 
 **🖼️ Dashboard Preview:**  
-`Tableau_Dashboarrd_Cyclist_Dashboard_Pic.png`
+![Dashboard Preview](Tableau_Dashboarrd_Cyclist_Dashboard_Pic.png)
+
 
 ---
 
