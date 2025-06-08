@@ -8,7 +8,7 @@
 
 ## 📌 Project Overview
 
-This case study analyzes over **6.2 million ride records** from Cyclistic, a fictional bike-share program in Chicago. The goal is to uncover behavioral differences between casual riders and annual members to support a data-driven marketing strategy: **convert more casual riders into long-term members.**
+This case study analyzes over **6.2 million ride records** from Cyclistic, a fictional bike-share program in Chicago. The analysis explores behavioral differences between casual riders and annual members to support a **data-driven marketing strategy** aimed at increasing long-term membership.
 
 ---
 
@@ -23,75 +23,86 @@ This case study analyzes over **6.2 million ride records** from Cyclistic, a fic
 ## 🧹 Data Cleaning Summary
 
 - Merged 14 months of `.csv` trip data (Dec 2023 – Jan 2025)
-- Standardized inconsistent timestamps (12hr/24hr mix)
-- Filtered rides <3 minutes or >24 hours
-- Removed invalid locations (e.g., stations in Lake Michigan)
-- Created new fields: ride length, season, hour of day, week start
+- Standardized inconsistent timestamps (12hr/24hr format)
+- Filtered rides under 3 minutes or over 24 hours
+- Removed invalid stations (e.g., located in Lake Michigan)
+- Engineered new fields: ride length, season, hour of day, week start
 
 ---
 
 ## 📊 Visualizations
 
-An interactive Tableau dashboard was created to visualize time-based usage patterns:
+An interactive Tableau dashboard highlights time-based usage trends:
 
-- Peak ride hours by rider type
-- Ride duration distribution (members vs. casual)
-- Weekly and seasonal ride trends
-- Day-of-week usage breakdown
+- ⏰ Peak ride hours by rider type  
+- ⏳ Ride duration distribution (member vs. casual)  
+- 📅 Weekly and seasonal trends  
+- 📈 Day-of-week and time-of-day usage patterns  
 
-📷 **Dashboard Preview:**  
-*(See image: `Tableau_Dashboard_Cyclist_Data.png`)*
+**🖼️ Dashboard Preview:**  
+`Tableau_Dashboard_Cyclist_Data.png`
 
 ---
 
 ## 🌐 Live Links
 
-- 🔗 [Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
+- 🔗 [Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)  
 - 📄 [Full RMarkdown Report on RPubs](https://rpubs.com/Nikki0686/1312027)
 
 ---
 
 ## 🧠 Key Findings
 
-| Insight                                 | Business Relevance                      |
-|----------------------------------------|------------------------------------------|
-| Casual riders prefer weekends/midday   | Market toward recreational users         |
-| Members ride weekday mornings          | Align with commuter incentives           |
-| Summer usage spikes sharply            | Plan seasonal membership campaigns       |
-| Casual hotspots = tourist areas        | Use geo-targeted ads during tourist season |
+| Insight                            | Business Relevance                         |
+|------------------------------------|---------------------------------------------|
+| Casual riders prefer weekends/midday | Target recreational users with weekend promos |
+| Members ride weekday mornings       | Align campaigns with commuter patterns       |
+| Summer usage spikes sharply         | Run seasonal membership campaigns            |
+| Casual hotspots = tourist areas     | Use geo-targeted ads in summer zones         |
 
 ---
 
 ## 🧭 Strategic Recommendations
 
-To increase casual-to-member conversion:
-
-- Offer in-app promotions during weekend afternoons
-- Target ads near tourist zones during summer
-- Incentivize weekday riding to build commuter habits
+- Offer **in-app promotions** during weekend afternoons
+- Target **ads near tourist hotspots** during summer
+- Incentivize **weekday riding** to build commuter habits
 
 ---
 
 ## 🔮 Future Enhancements
 
 - Add demographic overlays (age, zip code)
-- Apply time-series forecasting for seasonal trends
-- Use anomaly detection for ride pattern irregularities
+- Use time-series forecasting for seasonal trends
+- Apply anomaly detection to flag outliers or misuse
 
 ---
 
 ## 🗂️ Files Included
 
-- `cyclistic_case_study.Rmd` – full analysis code
-- `bike_lake_michigan_chicago.png` – intro image
-- `Tableau_Dashboard_Cyclist_Data.png` – dashboard preview
-- *(Optional)* `.html` knit of RMarkdown for local viewing
+- `cyclistic_case_study.Rmd` — full R code for analysis and cleaning  
+- `bike_lake_michigan_chicago.png` — intro visual used in report  
+- `Tableau_Dashboard_Cyclist_Data.png` — dashboard preview screenshot  
+- *(Optional)* `Cyclistic-Bike-Share-Case-Study.html` — knit output for offline viewing  
+
+### 📁 Data Summaries (for Tableau)
+
+Located in the `/data` folder:
+
+- `tableau_top20_station_map.csv` – Top 20 end stations for bar chart  
+- `tableau_ride_length_histogram.csv` – Ride length summary binned for histogram  
+- `tableau_weekly_rides.csv` – Weekly ride volume for time trend  
+- `tableau_hourly_usage.csv` – Hourly ride volume by rider type  
+
+> ❗ **Note:** Original Divvy trip data is not included due to size (6.2M+ records).  
+> Source: [Divvy Bike Share Open Data](https://divvy-tripdata.s3.amazonaws.com/index.html)
 
 ---
 
 ## 👋 Contact
 
-Feel free to connect or reach out:
-
 📧 nkc0686@yahoo.com  
-🔗 [LinkedIn Profile](https://linkedin.com/in/nikkole-carlson-20a58046)
+🔗 [LinkedIn](https://linkedin.com/in/nikkole-carlson-20a58046)  
+🔗 [GitHub Profile](https://github.com/nkc0686)
+
+
