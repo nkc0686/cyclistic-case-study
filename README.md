@@ -44,7 +44,8 @@ Interactive Tableau dashboard showcasing key usage patterns:
 
 ---
 
-![Tableau Dashboard Screenshot](Cyclistic_Dashboard_Screenshot.png)
+![Tableau Dashboard Screenshot](Tableau%20Dashboarrd%20Cyclist%20Dashboard%20Pic.png)
+
 
 
 ---
