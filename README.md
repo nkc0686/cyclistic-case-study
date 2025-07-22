@@ -42,8 +42,10 @@ Interactive Tableau dashboard showcasing key usage patterns:
 - 📅 Weekly and seasonal usage trends  
 - 📈 Day-of-week and time-of-day behavior  
 
-**🖼️ Dashboard Preview Screenshot:**  
-![Dashboard Preview](Tableau_Dashboard_Cyclist_Data.png)
+### 🖼️ Dashboard Preview
+
+![Tableau Dashboard Screenshot](Tableau_Dashboard_Cyclist_Data.png)
+
 
 ---
 
