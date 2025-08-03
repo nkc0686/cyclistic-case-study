@@ -45,9 +45,8 @@ An interactive Tableau dashboard showcases:
 * 📅 Weekly and seasonal usage patterns
 * ↑ Hour-of-day and day-of-week trends
 
-### 🖼️ Dashboard Preview
-
-View the full interactive dashboard on Tableau Public: Cyclistic User Behavior Analysis 2024
+### 🖼️ Dashboard Preview  
+![Cyclistic Tableau Dashboard](Screenshots/Tableau_Dashboard_Cyclist_Dashboard.png)
 
 ---
 
