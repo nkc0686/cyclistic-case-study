@@ -47,7 +47,7 @@ An interactive Tableau dashboard showcases:
 
 ### 🖼️ Dashboard Preview
 
-![Dashboard Screenshot](screenshots/Tableau_Dashboard_Cyclist_Data.png)
+View the full interactive dashboard on Tableau Public: Cyclistic User Behavior Analysis 2024
 
 ---
 
