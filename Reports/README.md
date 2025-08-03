@@ -1,8 +1,10 @@
-# Reports
+## Final Report
 
-This folder contains the final report and documentation for the Cyclistic Bike-Share Case Study.
+📝 **Cyclistic Bike-Share Case Study (HTML Report):**  
+Published on RPubs for easy viewing:  
+👉 [View Report on RPubs](https://rpubs.com/Nikki0686/1312027)  
+(Note: Local HTML/PDF version not stored in this repo.)
 
-- **RMarkdown Report (HTML)**: View the published report on RPubs:  
-  [https://rpubs.com/Nikki0686/1312027](https://rpubs.com/Nikki0686/1312027)
-
-📝 **Note:** A PDF version was not included due to limitations rendering interactive elements like leaflet maps and dynamic visuals. The HTML version is more functional and readable.
+📊 **Interactive Tableau Dashboard:**  
+View the live dashboard on Tableau Public:  
+👉 [CyclisticUsageInsights](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
