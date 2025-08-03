@@ -45,6 +45,24 @@ An interactive Tableau dashboard showcases:
 * 📅 Weekly and seasonal usage patterns
 * ↑ Hour-of-day and day-of-week trends
 
+### 🔄 Data Pipeline Overview
+
+This project follows a structured data pipeline:
+
+1. **Ingestion**: Loads 14 monthly CSV files (Dec 2023–Jan 2025) from the `data/raw/` directory  
+2. **Cleaning & Transformation**:  
+   - Standardizes timestamp formats (mix of 12/24-hour clocks)  
+   - Filters out outlier ride lengths  
+   - Engineers features like `ride_length`, `hour_of_day`, `day_of_week`, `season`, and `week_start`  
+3. **Export**:  
+   - Saves Tableau-ready summary files to `data/`  
+   - Prepares a cleaned dataset (optional `.rds` file)  
+   - Exports visual outputs like ride length violin plot and station maps  
+4. **Visualization**: Tableau dashboard built using the exported summary files
+
+> ⚠️ Note: Raw data files not included in this repository due to size.  
+> Download available at: https://divvy-tripdata.s3.amazonaws.com/index.html
+
 ### 🖼️ Dashboard Preview  
 ![Cyclistic Tableau Dashboard](Screenshots/Tableau_Dashboard_Cyclist_Dashboard_Pic.png)
 
