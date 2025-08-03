@@ -1,0 +1,211 @@
+---
+title: "Cyclistic Bike-Share Case Study Dec. 2023 - Jan. 2025"
+author: "Nikkole Carlson"
+date: "2025-05-11"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: flatly
+    df_print: paged
+---
+
+![Cyclist on the Chicago Lakefront](bike_lake_michigan_chicago.png)  
+*Figure 1. Visual created in collaboration with ChatGPT. Image based on a real Chicago lakefront setting.*
+
+# Executive Summary
+
+Cyclistic Bike-Share Case Study analyzed 14 months of trip data to uncover behavioral differences between casual riders and members. The findings highlight seasonal trends, peak usage times, and membership conversion opportunities, enabling data-driven marketing strategies.
+
+Key insights reveal that casual riders favor weekends and midday trips, while members ride consistently during commuting hours—especially weekday mornings and evenings. Summer months show the highest casual ridership, offering an opportunity for seasonal membership promotions.
+
+Leveraging Tableau dashboards and cleaned ride data, we present strategic recommendations to improve member acquisition, including targeted promotions, flexible pricing models, and customer engagement initiatives. These data-driven tactics align with Cyclistic’s growth objectives and offer a clear path toward increasing membership conversions.
+
+# Business Task
+
+The Cyclistic marketing team has a clear business objective: increase the number of annual memberships by converting casual riders. To support this effort, we analyzed trip data across 14 months to answer:
+
+* How do casual riders and members differ in their riding patterns?
+* When are the peak hours, days, and seasons for each group?
+* What trends can be leveraged for marketing and operational improvements?
+
+Insights from this analysis guide targeted promotions, app notifications, and rider engagement strategies.
+
+# About Cyclistic and Key Stakeholders
+
+Cyclistic operates more than 5,800 bikes and 600+ docking stations in Chicago. It offers standard bicycles as well as accessible options like reclining bikes, hand tricycles, and cargo bikes. Around 30% of riders use Cyclistic for commuting.
+
+**Key Stakeholders:**
+
+* **Lily Moreno – Director of Marketing:** Leads digital campaigns to increase membership.
+* **Cyclistic Marketing Analytics Team:** Includes junior analysts like myself, working to support data-informed strategy.
+* **Cyclistic Executive Team:** Approves strategic initiatives based on professional-grade analysis.
+
+# Data Description
+
+The dataset includes over 6.2 million ride records collected from December 2023 through January 2025. Each row contains:
+
+* Ride start and end timestamps
+* Ride duration (in seconds)
+* Rider type (member or casual)
+* Bike type (classic, docked, electric)
+* Station names and coordinates (where available)
+
+PII is removed. Data was sourced from the [Divvy trip data portal](https://divvy-tripdata.s3.amazonaws.com/index.html) and is licensed under the [City of Chicago Data License Agreement](https://www.divvybikes.com/data-license-agreement).
+
+# Data Cleaning & Preparation
+
+After merging the 14 months of data, we removed rides with:
+
+* Missing or inconsistent timestamps
+* Durations under 3 minutes (accidental unlocks)
+* Durations over 24 hours (likely errors)
+
+This filtering retained \~5.99 million valid records (\~96% of the original dataset).
+
+We excluded rides with invalid or missing station coordinates (e.g., stations in Lake Michigan). For station-level visuals, we focused only on the top 20 stations per rider type by ride volume.
+
+```{r libraries}
+library(tidyverse)
+library(lubridate)
+library(readr)
+library(janitor)
+library(leaflet)
+```
+
+```{r load-and-clean-data, echo=TRUE, message=FALSE, warning=FALSE}
+files <- list.files("C:/Users/nkc06/OneDrive/Desktop/Documents/", pattern = "*divvy-tripdata.csv", full.names = TRUE)
+
+combined_data_df_cleaned <- files %>%
+  map(read_csv) %>%
+  keep(~"started_at" %in% names(.)) %>%
+  map_dfr(~ .x %>%
+    mutate(
+      started_at = parse_date_time(started_at, orders = c("ymd HMS", "mdy HMS", "mdY HMS", "Ymd HMS")),
+      ended_at = parse_date_time(ended_at, orders = c("ymd HMS", "mdy HMS", "mdY HMS", "Ymd HMS")),
+      ride_length = as.numeric(difftime(ended_at, started_at, units = "mins")),
+      day_of_week = weekdays(as.Date(started_at)),
+      hour_of_day = hour(started_at),
+      season = case_when(
+        month(started_at) %in% c(12, 1, 2) ~ "Winter",
+        month(started_at) %in% c(3, 4, 5) ~ "Spring",
+        month(started_at) %in% c(6, 7, 8) ~ "Summer",
+        TRUE ~ "Fall"
+      )
+    )
+  ) %>%
+  filter(!is.na(ride_length) & ride_length >= 3 & ride_length <= 1440) %>%
+  mutate(
+    member_casual = as.factor(member_casual),
+    season = factor(season, levels = c("Winter", "Spring", "Summer", "Fall")),
+    day_of_week = factor(day_of_week, levels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")),
+    ride_date = as.Date(started_at),
+    week_start = floor_date(ride_date, unit = "week")
+  )
+```
+
+# Key Findings
+
+| Insight                             | Explanation                      |
+| ----------------------------------- | -------------------------------- |
+| Casual riders peak weekends/midday  | Recreational use pattern         |
+| Members ride weekday commutes       | Predictable commuter behavior    |
+| Casual rides are longer in summer   | Seasonal promotional opportunity |
+| Bike preferences nearly identical   | Simplified inventory management  |
+| Top casual stations = tourist areas | Best for targeted promotion      |
+
+# Limitations
+
+Some records lacked accurate station data or fell outside expected time ranges. While these were filtered out to preserve quality, it’s possible that a small number of valid but unusual rides were excluded. Future improvements could include anomaly detection or deeper demographic integration.
+
+# Visualizations Summary
+
+![Tableau Dashboard Screenshot](Tableau_Dashboard_Cyclist_Data.png)
+*Figure 2. Interactive Tableau dashboard visualizing rider behavior by time of day, day of week, and season. Built using pre-aggregated R summaries for member vs. casual comparisons.*
+
+[View Tableau Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
+
+```{r top-station-map}
+top_station_usage_map <- combined_data_df_cleaned %>%
+  filter(!is.na(start_station_name) & !is.na(start_lat) & !is.na(start_lng) &
+         !is.na(end_station_name) & !is.na(end_lat) & !is.na(end_lng)) %>%
+  select(member_casual, start_station_name, start_lat, start_lng,
+         end_station_name, end_lat, end_lng) %>%
+  pivot_longer(cols = c(start_station_name, end_station_name),
+               names_to = "station_role",
+               values_to = "station_name") %>%
+  mutate(
+    lat = ifelse(station_role == "start_station_name", start_lat, end_lat),
+    lng = ifelse(station_role == "start_station_name", start_lng, end_lng)
+  ) %>%
+  select(member_casual, station_name, lat, lng) %>%
+  group_by(member_casual, station_name, lat, lng) %>%
+  summarise(ride_count = n(), .groups = "drop") %>%
+  group_by(member_casual) %>%
+  slice_max(ride_count, n = 20)
+
+leaflet(top_station_usage_map) %>%
+  addTiles() %>%
+  addCircleMarkers(
+    lng = ~lng, lat = ~lat,
+    popup = ~paste0("<b>", station_name, "</b><br/>",
+                    "Rides: ", ride_count, "<br/>",
+                    "Lat: ", round(lat, 5), "<br/>",
+                    "Lng: ", round(lng, 5)),
+    color = ~ifelse(member_casual == "member", "blue", "red"),
+    fillOpacity = 0.8, radius = 6
+  ) %>%
+  addLegend("bottomright", colors = c("blue", "red"),
+            labels = c("Member", "Casual"), title = "Rider Type")
+```
+
+```{r violin-plot}
+ride_length_box_data <- combined_data_df_cleaned %>%
+  select(member_casual, ride_length)
+
+ggplot(ride_length_box_data, aes(x = member_casual, y = ride_length, fill = member_casual)) +
+  geom_violin(trim = FALSE, alpha = 0.7) +
+  stat_summary(fun = "median", geom = "point", shape = 23, size = 2, fill = "white") +
+  labs(
+    title = "Ride Length Distribution by Rider Type (Zoomed In)",
+    y = "Ride Length (minutes)",
+    x = "Rider Type"
+  ) +
+  coord_cartesian(ylim = c(0, 90)) +  # You can adjust the upper limit if needed
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+# Recommendations
+
+* **Weekend & Event Promotions**: Offer discounted rides or membership trials near lakefront hotspots and during high-traffic city events (e.g., Lollapalooza, Taste of Chicago, Chicago Air & Water Show). Use mobile push notifications and in-station signage to capture spontaneous riders. Partnering with event organizers can also provide bundled promotions.
+* **Seasonal and Flexible Memberships**: Introduce short-term plans such as monthly, 3-month summer passes, or weekend-only memberships to appeal to tourists and occasional riders. These flexible options lower the barrier to entry and can serve as a gateway to annual conversion.
+* **Post-Ride Follow-Ups**: Use data triggers (e.g., trips > 20 mins or 3+ casual rides in a month) to send personalized emails offering limited-time discounts on memberships. Include charts showing money saved over time or access to premium perks like priority support.
+* **In-App & Email Nudges**: Highlight benefits of becoming a member within the app interface—especially at key decision points (ride completion screen, payment screen, peak hours). Use A/B tested banners and messages like “Save \$X per month by switching to a membership.”
+* **Station-Level Micro-Campaigns**: Identify the top 10–20 stations with the most casual usage and test on-site promotions such as QR-code signup boards, ambassador booths, or limited-time “flash offers” shown on kiosks or apps when riders start/return from these locations.
+* **Omni-Channel Marketing & Social Proof**: Run paid and organic campaigns across social media, incorporating user testimonials and videos. Collaborate with local influencers, tourism boards, and fitness groups. Launch referral challenges to reward both current members and new signups.
+* **Customer Journey Mapping**: Map the typical casual rider journey to identify high-conversion points and drop-offs. Use this to fine-tune promotions, reduce churn, and personalize onboarding. Align this with ride data patterns for maximum timing impact.
+
+### This case study demonstrates:
+
+* Use of R for data wrangling, timestamp standardization, and seasonal categorization  
+* Aggregated ride summaries used to drive Tableau visualizations  
+* Actionable marketing recommendations aligned with behavioral trends  
+* Clean dashboard design emphasizing clarity, timing, and strategic application
+
+# Conclusion
+
+Cyclistic’s ability to convert casual riders into members depends on targeted outreach, seasonal promotions, and behavioral insights. By applying the findings of this study, marketing campaigns can be optimized to align with rider habits, ensuring increased memberships and long-term engagement.
+
+This analysis provides actionable recommendations backed by real usage data, offering an opportunity to refine pricing strategies, enhance customer interactions, and drive business growth. Through data-driven decision-making, Cyclistic can develop a scalable model for membership expansion, reinforcing its position as a leader in urban mobility.
+
+# Final Deliverables
+
+* **✔️ Tableau Dashboard**: [CyclisticUsageInsights](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
+* **✔️ Cleaned Dataset**: `combined_data_df_cleaned.rds`
+* **✔️ Summary CSVs**: Weekly, Hourly, Seasonal, Boxplot, Stations
+* **✔️ R Script**: `how-bike-share-navigates-success.R`
+* **✔️ Visual Assets**: Rider photo, dashboard screenshot
+
+_Last updated: July 22, 2025_
