@@ -117,4 +117,6 @@ View the full interactive dashboard on Tableau Public: Cyclistic User Behavior A
 ## 📅 Report Access
 
 * View the full report on RPubs: [https://rpubs.com/Nikki0686/1312027](https://rpubs.com/Nikki0686/1312027)
+*  Explore the interactive Tableau dashboard:
+https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024
 * *(Optional)* HTML/PDF version available upon request
