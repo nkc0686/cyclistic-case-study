@@ -46,7 +46,7 @@ An interactive Tableau dashboard showcases:
 * ↑ Hour-of-day and day-of-week trends
 
 ### 🖼️ Dashboard Preview  
-![Cyclistic Tableau Dashboard](Screenshots/Tableau_Dashboard_Cyclist_Dashboard.png)
+![Cyclistic Tableau Dashboard](Screenshots/Tableau_Dashboard_Cyclist_Dashboard_Pic.png)
 
 ---
 
