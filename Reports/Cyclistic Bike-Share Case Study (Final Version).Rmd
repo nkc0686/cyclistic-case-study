@@ -14,6 +14,12 @@ output:
 ![Cyclist on the Chicago Lakefront](bike_lake_michigan_chicago.png)  
 *Figure 1. Visual created in collaboration with ChatGPT. Image based on a real Chicago lakefront setting.*
 
+**View the full report online:**  
+[https://rpubs.com/Nikki0686/1312027](https://rpubs.com/Nikki0686/1312027)
+
+**Interactive dashboard:**  
+[https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
+
 # Executive Summary
 
 Cyclistic Bike-Share Case Study analyzed 14 months of trip data to uncover behavioral differences between casual riders and members. The findings highlight seasonal trends, peak usage times, and membership conversion opportunities, enabling data-driven marketing strategies.
@@ -75,7 +81,10 @@ library(leaflet)
 ```
 
 ```{r load-and-clean-data, echo=TRUE, message=FALSE, warning=FALSE}
-files <- list.files("C:/Users/nkc06/OneDrive/Desktop/Documents/", pattern = "*divvy-tripdata.csv", full.names = TRUE)
+files <- list.files("data/raw/", pattern = "*divvy-tripdata.csv", full.names = TRUE)
+
+# Place Divvy CSVs (Dec 2023 – Jan 2025) in a local folder named "data/raw"
+# Full dataset link: https://divvy-tripdata.s3.amazonaws.com/index.html
 
 combined_data_df_cleaned <- files %>%
   map(read_csv) %>%
@@ -203,9 +212,11 @@ This analysis provides actionable recommendations backed by real usage data, off
 # Final Deliverables
 
 * **✔️ Tableau Dashboard**: [CyclisticUsageInsights](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
-* **✔️ Cleaned Dataset**: `combined_data_df_cleaned.rds`
+* **✔️ Cleaned Dataset**: `combined_data_df_cleaned.rds`  
+  _(not included in repo due to size; available upon request or can be recreated from raw data)_
 * **✔️ Summary CSVs**: Weekly, Hourly, Seasonal, Boxplot, Stations
 * **✔️ R Script**: `how-bike-share-navigates-success.R`
 * **✔️ Visual Assets**: Rider photo, dashboard screenshot
 
 _Last updated: July 22, 2025_
+
