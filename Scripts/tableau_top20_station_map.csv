@@ -1,0 +1,41 @@
+member_casual,station_name,lat,lng,ride_count
+casual,Streeter Dr & Grand Ave,41.892278,-87.612043,87990
+casual,DuSable Lake Shore Dr & Monroe St,41.880958,-87.616743,53959
+casual,DuSable Lake Shore Dr & North Blvd,41.911722,-87.626804,41664
+casual,Michigan Ave & Oak St,41.90096039,-87.62377664,41077
+casual,Millennium Park,41.8810317,-87.62408432,38029
+casual,Shedd Aquarium,41.86722596,-87.61535539,33384
+casual,Dusable Harbor,41.886976,-87.612813,28748
+casual,Theater on the Lake,41.926277,-87.630834,28476
+casual,Michigan Ave & 8th St,41.872773,-87.623981,21192
+casual,Adler Planetarium,41.866095,-87.607267,19830
+casual,Indiana Ave & Roosevelt Rd,41.867888,-87.623041,19194
+casual,Michigan Ave & Washington St,41.88398406,-87.62468398,18109
+casual,Wabash Ave & Grand Ave,41.891466,-87.626761,17978
+casual,Wells St & Concord Ln,41.912133,-87.634656,17963
+casual,Clark St & Lincoln Ave,41.915689,-87.6346,17481
+casual,Montrose Harbor,41.963982,-87.638181,17471
+casual,Clark St & Armitage Ave,41.918306,-87.636282,17086
+casual,Clark St & Elm St,41.902973,-87.63128,16670
+casual,New St & Illinois St,41.89084704,-87.61861682,16238
+casual,Kingsbury St & Kinzie St,41.88917683,-87.63850577,15728
+member,Kingsbury St & Kinzie St,41.88917683,-87.63850577,49186
+member,Clinton St & Washington Blvd,41.88338,-87.64117,46434
+member,Clark St & Elm St,41.902973,-87.63128,41438
+member,Clinton St & Madison St,41.88275197,-87.64119029,41006
+member,Clinton St & Jackson Blvd,41.87831661,-87.64098108,33368
+member,Wells St & Concord Ln,41.912133,-87.634656,33341
+member,Wells St & Elm St,41.903222,-87.634324,32548
+member,Canal St & Madison St,41.882409,-87.639767,32022
+member,State St & Chicago Ave,41.8966172,-87.62857854,31974
+member,University Ave & 57th St,41.791478,-87.599861,31894
+member,Dearborn St & Erie St,41.893992,-87.629318,31451
+member,Larrabee St & Kingsbury St,41.897764,-87.642884,28557
+member,Daley Center Plaza,41.884241,-87.629634,28550
+member,Canal St & Adams St,41.879255,-87.639904,28200
+member,DuSable Lake Shore Dr & North Blvd,41.911722,-87.626804,28183
+member,Broadway & Barry Ave,41.93758232,-87.64409781,27064
+member,Loomis St & Lexington St,41.87222873,-87.66136386,26711
+member,Wells St & Hubbard St,41.889906,-87.634266,26613
+member,Ellis Ave & 60th St,41.78509715,-87.60107276,26436
+member,Morgan St & Polk St,41.871737,-87.65103,25597
