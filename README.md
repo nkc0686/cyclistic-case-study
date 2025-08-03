@@ -1,107 +1,120 @@
 # 🚲 Cyclistic Bike-Share Case Study (Dec 2023 – Jan 2025)
 
-**Author:** Nikkole (Nikki) Carlson  
-**Last Updated:** July 2025  
+**Author:** Nikkole (Nikki) Carlson
+**Last Updated:** July 2025
 **Tools Used:** R (tidyverse, lubridate, janitor), Tableau, RMarkdown
+**🌟 Status:** Completed | 📁 Repository organized and documented for employer review
 
 ---
 
 ## 📌 Project Overview
 
-This case study explores over **6.2 million bike-share rides** collected by Cyclistic, a fictional Chicago-based program. The goal is to identify **behavioral differences** between casual riders and members to support a **data-driven marketing strategy** aimed at increasing long-term memberships.
+This case study analyzes 14 months of Cyclistic bike-share trip data (Dec 2023 – Jan 2025) totaling over 6.2 million records. The goal is to identify behavior patterns between casual and member riders to support a data-driven marketing strategy that increases memberships.
 
 ---
 
 ## 🔍 Key Business Questions
 
-- How do casual and member riders differ in ride time, day, and season?
-- When are the peak usage times, and how do they vary by rider type?
-- What trends can be used to inform targeted promotions and retention strategies?
+* How do casual and member riders differ in ride time, day, and season?
+* When are the peak usage times, and how do they vary by rider type?
+* What trends can support targeted promotions or rider conversion?
 
 ---
 
-## 🧹 Data Cleaning Summary
+## 🪚 Data Cleaning Summary
 
-- Merged 14 months of `.csv` trip data (Dec 2023 – Jan 2025)
-- Standardized inconsistent timestamps (12-hour / 24-hour formats)
-- Filtered out rides under 3 minutes or over 24 hours
-- Removed invalid station coordinates (e.g., stations in Lake Michigan)
-- Engineered new features:
-  - Ride length (minutes)
-  - Hour of day, day of week, season, and week start
-  - Cleaned column names and rider categories
+* Combined 14 monthly .csv files (Dec 2023 – Jan 2025)
+* Standardized inconsistent timestamps (mix of 12-hour and 24-hour formats)
+* Filtered rides under 3 minutes or over 24 hours
+* Removed invalid station coordinates (e.g., in Lake Michigan or buildings)
+* Engineered key features:
+
+  * Ride length (in minutes)
+  * Hour of day, day of week, and season
+  * Week start and ride date
+* Cleaned column names and rider labels for consistency
 
 ---
 
 ## 📊 Visualizations
 
-Interactive Tableau dashboard showcasing key usage patterns:
+An interactive Tableau dashboard showcases:
 
-- ⏰ Peak ride hours by rider type  
-- ⏳ Ride duration distribution (box plot)  
-- 📅 Weekly and seasonal usage trends  
-- 📈 Day-of-week and time-of-day behavior  
-
----
+* ⏰ Peak ride hours by rider type
+* ⌛ Ride duration by user type (box plot)
+* 📅 Weekly and seasonal usage patterns
+* ↑ Hour-of-day and day-of-week trends
 
 ### 🖼️ Dashboard Preview
 
-![Tableau Dashboard Screenshot](Tableau_Dashboard_Cyclist_Dashboard_Pic.png)
+![Dashboard Screenshot](screenshots/Tableau_Dashboard_Cyclist_Data.png)
 
 ---
 
 ## 🌐 Live Project Links
 
-- 🔗 [Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)  
-- 📄 [Full RMarkdown Report on RPubs](https://rpubs.com/Nikki0686/1312027)
+* 🔗 [Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
+* 📄 [Full RMarkdown Report on RPubs](https://rpubs.com/Nikki0686/1312027)
 
 ---
 
 ## 🧠 Key Findings
 
-| Insight                               | Business Relevance                                  |
-|--------------------------------------|-----------------------------------------------------|
-| Casual riders peak on weekends/midday | Target recreational users with weekend promotions   |
-| Members ride weekday mornings         | Align messaging with commuter habits                |
-| Summer shows highest casual usage     | Launch seasonal membership campaigns                |
-| Tourist hotspots have most casual use | Use geo-targeted ads near key stations              |
+| Insight                                    | Business Relevance                            |
+| ------------------------------------------ | --------------------------------------------- |
+| Casual riders peak on weekends and midday  | Target recreational users with weekend promos |
+| Members ride mostly on weekday mornings    | Align campaigns with commuter habits          |
+| Summer has highest casual usage            | Offer seasonal membership incentives          |
+| Tourist hotspots show most casual activity | Use geo-targeted ads and signage              |
 
 ---
 
-## 🧭 Strategic Recommendations
+## 🗺️ Strategic Recommendations
 
-- Offer weekend in-app promotions near tourist hotspots  
-- Run flexible membership trials during summer events  
-- Incentivize weekday riding to build commuter habits  
-- Use post-ride nudges to convert frequent casual users
-
----
-
-## 🔮 Future Enhancements
-
-- Integrate demographic overlays (e.g., age, zip code)
-- Apply time series forecasting for seasonal demand
-- Add anomaly detection to flag misuse or outliers
+* Launch weekend discounts and in-app promos near tourist areas
+* Offer flexible trial memberships during summer events
+* Use weekday commuter incentives
+* Send post-ride nudges to frequent casual riders to promote conversion
 
 ---
 
-## 🗂️ Project Files
+## 🤮 Future Enhancements
 
-- `cyclistic_case_study.Rmd` – Full R script (cleaning, analysis, export)
-- `bike_lake_michigan_chicago.png` – Chicago lakefront intro visual
-- `Tableau_Dashboard_Cyclist_Data.png` – Dashboard preview screenshot
-- *(Optional)* `Cyclistic-Bike-Share-Case-Study.html` – Knitted report (offline view)
+* Merge with demographic overlays (age, ZIP code)
+* Add seasonal demand forecasting
+* Use anomaly detection to flag misuse or outliers
+
+---
+
+## 📂 Project Files
+
+### Scripts
+
+* `scripts/cyclistic_case_study.R` – Main R script (cleaning, transformation, and CSV export)
+
+### Visual Assets
+
+* `visuals/bike_lake_michigan_chicago.png` – Chicago lakefront image for report intro
+* `screenshots/Tableau_Dashboard_Cyclist_Data.png` – Dashboard screenshot
+
+### Summary Data for Tableau (in `/data/summary/`)
+
+* `tableau_top20_station_map.csv`
+* `tableau_ride_length_histogram.csv`
+* `tableau_weekly_summary.csv`
+* `tableau_hourly_by_date.csv`
+* `tableau_dayofweek_summary.csv`
+* `tableau_ride_length_boxplot.csv`
+* `tableau_ride_length_box_summary.csv`
+* `tableau_bike_preference_summary.csv`
+* `tableau_top10_station_combined.csv`
+
+> ⚠️ **Note:** Raw data files (\~6.2M rows) are not stored in this repo due to size.
+> Download them from the [Divvy Trip Data Portal](https://divvy-tripdata.s3.amazonaws.com/index.html)
 
 ---
 
-## 📁 Tableau Summary Files (in `/data` folder)
+## 📅 Report Access
 
-- `tableau_top20_station_map.csv` – Top 20 stations for map
-- `tableau_ride_length_histogram.csv` – Ride duration summary
-- `tableau_weekly_rides.csv` – Weekly ride trends
-- `tableau_hourly_usage.csv` – Hourly usage by rider type
-
-> **Note:** Raw ride data (6.2M+ records) not included due to file size.  
-> **Source:** [Divvy Bike Share Open Data](https://divvy-tripdata.s3.amazonaws.com/index.html)
-
----
+* View the full report on RPubs: [https://rpubs.com/Nikki0686/1312027](https://rpubs.com/Nikki0686/1312027)
+* *(Optional)* HTML/PDF version available upon request
