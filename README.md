@@ -75,8 +75,7 @@ This project follows a structured data pipeline:
 ## 📄 View the Published Report
 Note: Due to technical issues with RPubs, the link below contains the most current version of the case study.
 I’m working to update the original link listed on my resume.
-
-* 🔗 Cyclistic Case Study (RPubs)
+*🔗 [Cyclistic Case Study (RPubs)](https://rpubs.com/Nikki0686/1334937)
 ---
 
 ## 🧠 Key Findings
