@@ -2,7 +2,7 @@
 
 📝 **Cyclistic Bike-Share Case Study (HTML Report):**  
 Published on RPubs for easy viewing:  
-👉 [View Report on RPubs](https://rpubs.com/Nikki0686/1312027)  
+🔗 Cyclistic Case Study (RPubs)
 (Note: Local HTML/PDF version not stored in this repo.)
 
 📊 **Interactive Tableau Dashboard:**  
