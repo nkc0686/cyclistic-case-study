@@ -71,13 +71,7 @@ This project follows a structured data pipeline:
 ## 🌐 Live Project Links
 
 * 🔗 [Interactive Tableau Dashboard](https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024)
-* 📄 [Full RMarkdown Report on RPubs](https://rpubs.com/Nikki0686/1312027)
-
-## 📄 View the Published Report
-Note: Due to technical issues with RPubs, the link below contains the most current version of the case study.
-I’m working to update the original link listed on my resume.
-
-🔗 [Cyclistic Case Study (RPubs)](https://rpubs.com/Nikki0686/1334937)
+* 📄 [Cyclistic Case Study (RPubs)](https://rpubs.com/Nikki0686/1334937)
 ---
 
 ## 🧠 Key Findings
