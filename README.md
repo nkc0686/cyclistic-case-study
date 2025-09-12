@@ -94,7 +94,7 @@ This project follows a structured data pipeline:
 
 ---
 
-##   Future Enhancements
+##    Future Enhancements
 
 * Merge with demographic overlays (age, ZIP code)
 * Add seasonal demand forecasting
