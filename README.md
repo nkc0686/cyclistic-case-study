@@ -117,4 +117,4 @@ Download them from the Divvy dataset portal:
 https://divvy-tripdata.s3.amazonaws.com/index.html
 
 ## Dashboard Preview
-![Cyclistic Dashboard](screenshots/Tableau_Dashboard_Cyclistic.png)
+![Cyclistic Dashboard](Screenshots/Cyclistic%20User%20Behavior%20Analysis.png)
