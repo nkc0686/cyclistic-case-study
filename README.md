@@ -2,7 +2,7 @@
 
 **Author:** Nikki Carlson  
 **Tools:** R (tidyverse, lubridate, janitor), Tableau, RMarkdown  
-**Status:** Completed project  
+**Status:** Completed project
 
 ---
 
@@ -16,11 +16,17 @@ The goal is to identify behavioral differences between **casual riders and annua
 
 ## 🔗 Project Links
 
-### 📊 Interactive Tableau Dashboard
+📊 **Interactive Tableau Dashboard**  
 https://public.tableau.com/app/profile/nikki.carlson2355/viz/CyclisticUsageInsights/CyclisticUserBehaviorAnalysis2024
 
-### 📄 Full RMarkdown Report (RPubs)
+📄 **Full RMarkdown Report (RPubs)**  
 https://rpubs.com/Nikki0686/1334937
+
+---
+
+## 📊 Dashboard Preview
+
+![Cyclistic Dashboard](Screenshots/Cyclistic%20User%20Behavior%20Analysis.png)
 
 ---
 
@@ -38,9 +44,9 @@ This analysis focuses on three key questions:
 
 The dataset required several preparation steps before analysis:
 
-- Combined **14 monthly CSV files** (Dec 2023 – Jan 2025)
+- Combined **14 monthly CSV files (Dec 2023 – Jan 2025)**
 - Standardized inconsistent timestamp formats
-- Filtered rides **under 3 minutes** or **over 24 hours**
+- Filtered rides **under 3 minutes or over 24 hours**
 - Removed invalid or missing station coordinate records
 
 ### Engineered Features
@@ -80,9 +86,9 @@ The Tableau dashboard highlights key usage patterns including:
 
 ## 🗺️ Strategic Recommendations
 
-- Launch **weekend promotions** targeting recreational riders
-- Offer **seasonal or short-term membership plans**
-- Use **post-ride conversion offers** for frequent casual riders
+- Launch **weekend promotions** targeting recreational riders  
+- Offer **seasonal or short-term membership plans**  
+- Use **post-ride conversion offers** for frequent casual riders  
 - Highlight **commuter savings in in-app membership messaging**
 
 ---
@@ -93,28 +99,25 @@ The Tableau dashboard highlights key usage patterns including:
 Load **14 monthly CSV files** from the Divvy dataset.
 
 ### Cleaning & Transformation
-
 - Timestamp standardization
 - Ride length filtering
 - Feature engineering
 
 ### Export
-
 - Create Tableau-ready summary datasets
 - Export cleaned dataset for reproducibility
 
 ### Visualization
-
 Build an **interactive dashboard in Tableau**.
 
 ---
 
 ## 📂 Repository Structure
 
-⚠️ Raw data files (~6M records) are **not included** due to size.
 
-Download them from the Divvy dataset portal:  
+---
+
+⚠️ **Raw Divvy trip data (~6M records) is not included due to repository size limits.**
+
+Download the dataset here:  
 https://divvy-tripdata.s3.amazonaws.com/index.html
-
-## Dashboard Preview
-![Cyclistic Dashboard](Screenshots/Cyclistic%20User%20Behavior%20Analysis.png)
